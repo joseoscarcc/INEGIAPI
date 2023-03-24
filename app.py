@@ -1,11 +1,11 @@
 from dash import Dash, html, dcc
+from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 import requests
 import json
 
 app = Dash(__name__)
-server = app.server
 
 gringos = pd.DataFrame()
 
@@ -71,7 +71,11 @@ gringos = pd.concat([automovil,avion,crucero])
 
 gringos['gastoIndividual'] = gringos['GastoTotal'] / gringos['NumeroTotal']
 
-fig = px.bar(gringos, x="Name", y="NumeroTotal")
+def generateGraf(cual):
+    fig = px.bar(gringos, x="Name", y=cual)
+    return html.Div([
+    dcc.Graph(figure=fig)
+    ])
 
 app.layout = html.Div(children=[
     html.H1(children='Jojuma BI'),
@@ -79,12 +83,18 @@ app.layout = html.Div(children=[
     html.Div(children='''
         Numero de viajeros, por forma de internación al pais, Fuente: INEGI 2023.
     '''),
-
-    dcc.Graph(
-        id='example-graph',
-        figure=fig
-    )
+    dcc.RadioItems(
+                    ['NumeroTotal', 'GastoTotal','gastoIndividual'], 'NumeroTotal',
+                    id='queGrafica',
+                    inline=True
+                ),
+    html.Div(id='container_graphs')
 ])
+
+@app.callback(Output('container_graphs', 'children'),
+             [Input('queGrafica', 'value')])
+def render_content(queGrafica):
+    return generateGraf(queGrafica)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
