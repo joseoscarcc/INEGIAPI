@@ -6,6 +6,7 @@ import requests
 import json
 
 app = Dash(__name__)
+server = app.server
 
 gringos = pd.DataFrame()
 
