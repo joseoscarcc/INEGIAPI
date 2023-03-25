@@ -13,27 +13,27 @@ Inegi = os.getenv('APIinegi')
 gringos = pd.DataFrame()
 
 #numero automovil
-urlNumAuto='https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123166/es/0700/true/BISE/2.0/'Inegi'?type=json'
+urlNumAuto='https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123166/es/0700/true/BISE/2.0/'+Inegi+'?type=json'
 rNumAuto = requests.get(urlNumAuto)
 
 #gasto automovil
-urlGastoAuto ='https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123162/es/0700/true/BISE/2.0/'Inegi'?type=json'
+urlGastoAuto ='https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123162/es/0700/true/BISE/2.0/'+Inegi+'?type=json'
 rGastoAuto = requests.get(urlGastoAuto)
 
 #numero avion
-urlNumAvion = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123163/es/0700/true/BISE/2.0/'Inegi'?type=json'
+urlNumAvion = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123163/es/0700/true/BISE/2.0/'+Inegi+'?type=json'
 rNumAvion = requests.get(urlNumAvion)
 
 #gasto avion
-urlGastoAvion = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123170/es/0700/true/BISE/2.0/'Inegi'?type=json'
+urlGastoAvion = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123170/es/0700/true/BISE/2.0/'+Inegi+'?type=json'
 rGastoAvion = requests.get(urlGastoAvion)
 
 #numero crucero
-urlNumCrucero = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123181/es/0700/true/BISE/2.0/'Inegi'?type=json'
+urlNumCrucero = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123181/es/0700/true/BISE/2.0/'+Inegi+'?type=json'
 rNumCrucero = requests.get(urlNumCrucero)
 
 #gasto crucero
-urlGastoCrucero = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123180/es/0700/true/BISE/2.0/'Inegi'?type=json'
+urlGastoCrucero = 'https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6207123180/es/0700/true/BISE/2.0/'+Inegi+'?type=json'
 rGastoCrucero = requests.get(urlGastoCrucero)
 
 if rNumAuto.status_code==200:
